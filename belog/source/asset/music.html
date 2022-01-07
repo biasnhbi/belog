@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的音乐播放器</title>
+		<!-- 样式 -->
+		<link rel="stylesheet" href="/asset/css/index2.css">
+		<link rel="stylesheet" href="/asset/css/scrollbar.css">
+	</head>
+	<body>
+
+		<div class="wrap">
+			<!-- 播放器主体区域 -->
+			<div class="play_wrap" id="player">
+				<div class="search_bar">
+					<img src="/asset/img/player_title.png" alt="" />
+					<!-- 搜索歌曲 -->
+                    <input type="text" autocomplete="off" v-model="query" @keyup.enter="searchMusic()" />
+                    <img src="/asset/img/zoom.png" alt="" style="float: left;margin-left: -450px;margin-right: 40px;" @click="searchMusic()">
+				</div>
+				<div class="center_con">
+					<!-- 搜索歌曲列表 -->
+					<div class='song_wrapper'>
+						<ul class="song_list">
+							
+							<li v-for="(item,index) in songs">
+								<a href="javascript:;" @click="playsong(item.id)"></a> <b>{{item.name}}</b>
+								<span v-show="item.mvid!=0" @click="playMV(item.mvid)"><i></i></span>
+							</li>
+							
+						</ul>
+						<img src="/asset/img/line.png" class="switch_btn" alt="">
+					</div>
+					<!-- 歌曲信息容器 -->
+					<div :class="roll?'player_con playing':'player_con'" >
+						<img src="/asset/img/player_bar.png" class="play_bar" />
+						<!-- 黑胶碟片 -->
+						<img src="/asset/img/disc.png" class="disc autoRotate" />
+						<!-- 三元运算符 -->
+						<img :src="picurl!=''?picurl:'./asset/img/cover.png'" class="cover autoRotate" />
+					</div>
+					<!-- 评论容器 -->
+					<div class="comment_wrapper">
+						<h5 class='title'>热门留言</h5>
+						<div class='comment_list'>
+							<dl v-for="(item,index) in hotComments">
+								<dt><img :src="item.user.avatarUrl" alt=""></dt>
+								<dd class="name">{{item.user.nickname}}</dd>
+								<dd class="detail">
+									{{item.content}}
+                                </dd>
+                                <dd>
+                                </dd>
+							</dl>
+						</div>
+						<img src="/asset/img/line.png" class="right_line">
+					</div>
+				</div>
+				<div class="audio_con">
+					<audio ref='audio' v-bind:src="url" @play="playfun()" @pause="pausefun()" controls autoplay loop class="myaudio"></audio>
+				</div>
+				
+				
+				<div class="video_con" :style="vodio" @keyup.esc="escMv" @keyup.right="escMv">
+                    <video controls="controls" v-bind:src="mUrl" @play="playfun()" @pause="pausefun()"></video>
+                    <div class="mask" @keyup.esc="escMv"></div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<!-- 引入js -->
+	<!-- vue库 -->
+	<script src="/asset/js/vue.js"></script>
+	<!-- 网络请求库 -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- 自己的js -->
+	<script src="/asset/js/t3.js"></script>
+</html>

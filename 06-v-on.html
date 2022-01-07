@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="杀了我吧" v-on:click="kill">
+        <input type="button" value="杀了我吧" @click="kill">
+        <input type="button" value="杀了我吧" @dblclick="kill">
+        <input type="button" value="杀了我吧" @dblclick="kill"> 
+        <h2 @click="meKill" v-text="meKill1"></h2>
+    </div>
+</body>
+</html>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data:{
+            meKill1:"杀了我吧!快点!"
+        },
+        methods: {
+            kill:function(){
+                alert("杀了我吧");
+            },
+            meKill:function(){
+                this.meKill1+="快点!"
+            },
+        },
+    })
+</script>

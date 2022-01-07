@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+   <div id="app">
+       {{msg}}
+       <h2>{{school}}</h2>
+       <h2>{{school.name}}</h2>
+       <h2>{{school.phone}}</h2>
+       <ul>
+           <li>{{com[0]}}</li>
+           <li>{{com[2]}}</li>
+           <li>{{com}}</li>
+       </ul>
+   </div>
+</body>
+</html>
+<script>
+    var app=new Vue({
+        el:"#app",
+        data:{
+            msg:"nihao",
+            school:{
+                name:"heihei",
+                phone:"006007008"
+            },
+            com:["01","02","03"]
+        }
+    })
+</script>

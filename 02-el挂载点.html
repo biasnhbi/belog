@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el挂载点</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    {{msg}}
+    <div id="app">
+        {{msg}}
+        <span>{{msg}}</span>
+    </div>
+</body>
+</html>
+<script>
+    var app=new Vue({
+        el:"#app",
+        // el:".app"
+        // el:"div"
+        data:{
+            msg:"哈批"
+        }
+    })
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" :value="shown?msg1:msg2" @click="changeShow1">
+        <input type="button" :value="{msg1:shown}" @click="changeShow1">
+        <h1 :style="st">???</h1>
+    </div>
+</body>
+</html>
+<script>
+    var dd=new Vue({
+        el:"#app",
+        data:{
+            msg1:"傻逼!",
+            msg2:"傻逼?",
+            shown:false,
+            st:"Display='done'"
+        },
+        methods: {
+            changeShow1:function(){
+                this.shown=!this.shown
+            },
+        },
+    })
+</script>

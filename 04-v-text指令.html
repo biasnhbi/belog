@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <h2 v-text="msg"></h2>
+        <h2>你是{{msg}}</h2>
+        <h2 v-text="'你TM就是一个'+msg+'!'"></h2>
+        <h2>{{'你TM就是一个'+msg+'!'}}</h2>
+    </div>
+</body>
+</html>
+<script>
+    var app=new Vue({
+        el:"#app",
+        data:{
+            msg:"哈批"
+        }
+    })
+</script>

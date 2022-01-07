@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换显示状态" @click="changeShow">
+        <h1 v-if="shown">你看见我了没</h1>
+        <h1 v-show="shown">你看见我了没</h1>
+        <h1 v-if="1<0">你看见我?</h1>
+    </div>
+</body>
+</html>
+<script>
+    var dd=new Vue({
+        el:"#app",
+        data:{
+            msg:"傻逼",
+            shown:false,
+        },
+        methods: {
+            changeShow:function(){
+                this.shown=!this.shown;
+            }
+        },
+    })
+</script>
