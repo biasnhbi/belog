@@ -1,7 +1,7 @@
 ---
 title: redis-list类型命令及解析
 date: 2022-01-08 09:42:43
-tags: 学习 redis 数据库 后端
+tags: 学习,redis,数据库,后端
 ---
 
 # 简介
